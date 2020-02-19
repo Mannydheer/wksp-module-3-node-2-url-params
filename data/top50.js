@@ -1,5 +1,4 @@
-const top50 = [
-    {
+const top50 = [{
         rank: 1,
         title: 'One Dance',
         artist: 'Drake featuring WizKid and Kyla Views',
@@ -302,7 +301,8 @@ const top50 = [
     },
     {
         rank: 44,
-        title: 'Trap Queen', artist: 'Fetty Wap',
+        title: 'Trap Queen',
+        artist: 'Fetty Wap',
         streams: 481,
         publicationDate: '15-Dec-14'
     },
@@ -350,4 +350,6 @@ const top50 = [
     },
 ];
 
-module.exports = { top50 };
+module.exports = {
+    top50
+};

@@ -4,11 +4,29 @@
 
 How do you feel about this? Is this DRY?
 
+
 <div class='two-col'><div>
 
 ```js
 // ...
-const app = express();
+//if they type in:
+/question/6
+//
+app.get('/question/:number', (req, res) => {
+    //theres a number there but how do i get access to it?
+    const number = req.params.number;
+    // in the request object, theres another object called params, and whatever is passed from number as the end point will become the value of the key number of params. 
+//
+exercisesP1['q${number}]();
+});
+
+//console log
+console.log(number); // 6
+
+ });
+ 
+ 
+ const app = express();
 
 app.get('/question1', q1)
 app.get('/question2', q2)
