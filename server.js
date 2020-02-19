@@ -13,7 +13,51 @@ const topFifty = (req, res) => res.render('pages/top50', {
     // here we are taking the array top50 and storing it in topsongs for access later. Keep in mind that is it an array of objects. 
 });
 
-const popularArtist = (req, res) => res.render('pages/top50',
+const popularArtist = (req, res) => {
+
+let artistArray = [];
+let countedArtists = {};
+top50.forEach((current) => {
+  let streamCount = 0;
+  //Now artist is holding the artist name of each item.
+  top50.forEach((compared) => {
+    if (current.artist === compared.artist) {
+      streamCount += compared.streams;
+    }
+      })
+  //Here, we are taking the current artist name and putting it in the object counted Artists with that KEY. The KEY now is equal to the streamcount.
+  countedArtists[current.artist] = streamCount;
+})
+
+// -------
+//this will give them all
+//need to give put into an array. 
+Object.values(countedArtists).forEach((artistCount, id) => {
+  const artistName = Object.keys(countedArtists)[id];
+  artistArray.push({
+    artistName: artistName,
+    artistCount: artistCount
+
+  });
+})
+
+//sort modifies the original. 
+artistArray.sort(function(a,b) {
+  return b.artistCount - a.artistCount
+})
+
+
+//now we know that justin BEIBER is the MOST POPULAR.!!! 
+
+
+const filterArray = top50.filter(current => current.artist === artistArray[0].artistName)
+
+//---------------------
+    res.render('pages/top50pop', {
+        title: "Most Pop Songs Streamed on Spotify",
+        popSongs: filterArray
+    });
+}
 
         const PORT = process.env.PORT || 8000;
 
@@ -26,7 +70,7 @@ const popularArtist = (req, res) => res.render('pages/top50',
         // endpoints here
         app.get('/top50', topFifty);
         //popular artists.
-        app.get('/top50', popularArtist);
+        app.get('/top50pop', popularArtist);
 
         // handle 404s
         app.get('*', (req, res) => {

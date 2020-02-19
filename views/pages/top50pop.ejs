@@ -1,0 +1,27 @@
+<%- include('../partials/header') %>
+
+<%- include('../partials/footer') %>
+
+<ul>
+    <!-- So here, we are looping through the array 
+    of objects of the song. if we just keep it as element
+then we are taking the whole object. But if we want specific,
+keys from the object, we need to use dot function. -->
+
+    <% popSongs.forEach(element => { %>
+    <li>
+        <div class="rankstreamtitleartist">
+            <div class="rankStream">
+                <span class="rank"># <%= element.rank%>:</span>
+                <span class="stream">(<%= element.streams %> streams)</span>
+            </div>
+            <div class="titleArtist">
+                <span class="title"><%= element.title %></span>
+                <span class="artist"><%= element.artist %></span>
+            </div>
+        </div>
+        <span class="publicationDate">Publication date: <%= element.publicationDate %></span>
+
+    </li>
+    <% }); %>
+</ul>
