@@ -142,6 +142,10 @@ li:hover {
   font-style: italic;
   font-size: 50px; }
 
+a {
+  text-decoration: none;
+  color: black; }
+
 li {
   list-style-type: none; }
 

@@ -3,12 +3,12 @@
 
 <%- include('../partials/footer') %>
 
-
+<ul>
 <li>
     <div class="rankstreamtitleartist">
         <div class="rankStream">
             <span class="rank"># <%= pickedSong.rank%>:</span>
-            <span class="stream">(<%= pickedSong.streams %> streams)</span>
+            <span class="stream"><%= pickedSong.streams %> streams)</span>
         </div>
         <div class="titleArtist">
             <span class="title"><%= pickedSong.title %></span>
@@ -18,3 +18,4 @@
     <span class="publicationDate">Publication date: <%= pickedSong.publicationDate %></span>
 
 </li>
+</ul>

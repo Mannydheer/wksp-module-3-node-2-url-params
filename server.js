@@ -3,11 +3,13 @@
 const morgan = require('morgan');
 const express = require('express');
 
-const {top50} = require('./data/top50');
+const {
+    top50
+} = require('./data/top50');
 //import books.
-const {books} = require('./data/books');
-
-
+const {
+    books
+} = require('./data/books');
 // -----------------------------------------
 
 const topFifty = (req, res) => res.render('pages/top50', {
@@ -64,37 +66,68 @@ const rankedSongs = (req, res) => {
 
     //could be used as the rank. 
     const number = req.params.number;
-
     let chosenSong = top50[number - 1];
-
-if (chosenSong) {
-    res.render('pages/rankedSongs', {
-        title: `Song #${number}`,
-        pickedSong: chosenSong
-
-    });
-
-} else {
+    if (chosenSong) {
+        res.render('pages/rankedSongs', {
+            title: `Song #${number}`,
+            pickedSong: chosenSong
+        });
+    } else {
         res.status(404);
         res.render('pages/fourOhFour', {
             title: 'I got nothing',
             path: req.originalUrl
         });
- 
-
-}
-   
-
-
+    }
 }
 // -----------------------------------------
-
-const allBooks = (req,res) => res.render('pages/allbooks', {
+const allBooks = (req, res) => res.render('pages/allbooks', {
     title: "Lists of All Books!",
     listBooks: books
 
 })
+const rankedBooks = (req, res) => {
 
+    const value = req.params.value;
+    let chosenBook = books[value - 101];
+
+
+    if (chosenBook) {
+        res.render('pages/rankedBooks', {
+            title: "Book#",
+            listBooks: chosenBook
+
+        });
+    }
+}
+const typeBook = (req, res) => {
+    //store the string type book. 
+    let type = req.params.type;
+    
+    //holder for the books types.
+    let typeHolder = [];
+
+    books.forEach((current) => {
+        if (type === current.type) {
+            typeHolder.push(current);
+        }
+
+    
+
+    })
+    res.render('pages/allbooks', {
+        title: "Book Types",
+        listBooks: typeHolder
+    })
+
+
+
+
+
+
+
+
+}
 
 // -----------------------------------------
 
@@ -116,7 +149,15 @@ app.get('/top50pop', popularArtist);
 //ranked sons.
 app.get('/top50/:number', rankedSongs)
 // --------------------------
+
+app.get('/allbooks/value/:value', rankedBooks)
+
+app.get('/allbooks/type/:type', typeBook)
+// 
+
 app.get('/allbooks', allBooks)
+//
+//
 
 // handle 404s
 app.get('*', (req, res) => {

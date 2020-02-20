@@ -5,6 +5,7 @@ then we are taking the whole object. But if we want specific,
 keys from the object, we need to use dot function. -->
 
     <% topSongs.forEach(element => { %>
+    <a href="top50/<%= element.rank %> ">
     <li>
         <div class="rankstreamtitleartist">
             <div class="rankStream">
@@ -18,6 +19,6 @@ keys from the object, we need to use dot function. -->
         </div>
         <span class="publicationDate">Publication date: <%= element.publicationDate %></span>
 
-    </li>
+    </li></a>
     <% }); %>
 </ul>

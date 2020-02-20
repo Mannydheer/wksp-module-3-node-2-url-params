@@ -1,0 +1,24 @@
+<%- include('../partials/header') %>
+
+<%- include('../partials/footer') %>
+
+<ul>
+        <li class="bookList">
+        <div class="idType">
+            <span class="bookId"> <%= listBooks.id %> </span>
+            <span class="bookType"> <%= listBooks.type %> </span>
+        </div>
+    
+        <!-- keep in mind its always javascript -->
+        <div class="image">
+            <img class="bookImg" src= <%= listBooks.imgUrl %> >
+        </div>
+        <div class="titleAuthor">
+            <span class="bookTitle"> <%= listBooks.title %> </span>
+            <span class="bookAuthor"> <%= listBooks.author %> </span>
+        </div>
+        
+
+    </li>
+ 
+</ul>

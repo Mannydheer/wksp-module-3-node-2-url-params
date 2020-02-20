@@ -1,6 +1,9 @@
 <ul>
     <% listBooks.forEach(book => { %>
-    <li class="bookList">
+    
+    <!-- Need to put anchor tag to link to the correct endpoint. -->
+        <a href="allbooks/value/<%= book.id %> ">
+            <li class="bookList">
         <div class="idType">
             <span class="bookId"> <%= book.id %> </span>
             <span class="bookType"> <%= book.type %> </span>
@@ -16,7 +19,8 @@
         </div>
         
 
-    </li>
+    </li> </a>
+
     <% }); %>
 </ul>
 
