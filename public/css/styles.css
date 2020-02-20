@@ -121,6 +121,30 @@ li:hover {
 .rankstreamtitleartist {
   display: flex; }
 
+.idType {
+  display: flex;
+  flex-direction: column;
+  margin-top: 80px;
+  position: absolute;
+  left: 30px; }
+
+.bookId {
+  font-size: 20px; }
+
+.bookType {
+  font-size: 70px; }
+
+.bookList {
+  display: flex;
+  justify-content: space-evenly; }
+
+.bookTitle {
+  font-style: italic;
+  font-size: 50px; }
+
+li {
+  list-style-type: none; }
+
 body {
   background: #fafafa;
   display: flex;

@@ -3,12 +3,13 @@ li {
     padding: 30px;
     background-color: white;
     transition: all 0.8s;
+
 }
 
 li:hover {
     background-color: cadetblue;
     cursor: pointer;
-    
+
 }
 
 .rank {
@@ -45,3 +46,34 @@ li:hover {
 .rankstreamtitleartist {
     display: flex;
 }
+
+// ------------------
+
+.idType {
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+    position: absolute;
+    left: 30px;
+}
+
+.bookId {
+    font-size: 20px;
+}
+
+.bookType {
+    font-size: 70px;
+}
+
+.bookList {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.bookTitle {
+    font-style: italic;
+    font-size: 50px;
+}
+
+.bookImg {}
+

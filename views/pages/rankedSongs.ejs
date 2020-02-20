@@ -1,0 +1,20 @@
+
+<%- include('../partials/header') %>
+
+<%- include('../partials/footer') %>
+
+
+<li>
+    <div class="rankstreamtitleartist">
+        <div class="rankStream">
+            <span class="rank"># <%= pickedSong.rank%>:</span>
+            <span class="stream">(<%= pickedSong.streams %> streams)</span>
+        </div>
+        <div class="titleArtist">
+            <span class="title"><%= pickedSong.title %></span>
+            <span class="artist"><%= pickedSong.artist %></span>
+        </div>
+    </div>
+    <span class="publicationDate">Publication date: <%= pickedSong.publicationDate %></span>
+
+</li>

@@ -1,0 +1,22 @@
+<ul>
+    <% listBooks.forEach(book => { %>
+    <li class="bookList">
+        <div class="idType">
+            <span class="bookId"> <%= book.id %> </span>
+            <span class="bookType"> <%= book.type %> </span>
+        </div>
+    
+        <!-- keep in mind its always javascript -->
+        <div class="image">
+            <img class="bookImg" src= <%= book.imgUrl %> >
+        </div>
+        <div class="titleAuthor">
+            <span class="bookTitle"> <%= book.title %> </span>
+            <span class="bookAuthor"> <%= book.author %> </span>
+        </div>
+        
+
+    </li>
+    <% }); %>
+</ul>
+
